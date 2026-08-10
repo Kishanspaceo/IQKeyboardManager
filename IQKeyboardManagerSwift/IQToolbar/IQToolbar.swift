@@ -57,7 +57,12 @@ import UIKit
         }
 
         // Background color
-        self.backgroundColor = nil
+        if #available(iOS 26.0, *) {
+            self.backgroundColor = .systemBackground
+        } else {
+            self.backgroundColor = nil
+        }
+        
     }
 
     /**
@@ -128,7 +133,12 @@ import UIKit
     @objc open var doneBarButton: IQBarButtonItem {
         get {
             if privateDoneBarButton == nil {
-                privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+                if #available(iOS 26.0, *) {
+                    privateDoneBarButton = IQBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+                } else {
+                    privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+                }
+                
             }
             return privateDoneBarButton!
         }
