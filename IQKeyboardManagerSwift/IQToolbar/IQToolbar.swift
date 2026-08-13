@@ -59,6 +59,11 @@ import UIKit
         // Background color
         if #available(iOS 26.0, *) {
             self.backgroundColor = .systemBackground
+//            self.backgroundColor = UIColor(red: 0.977, green: 0.971, blue: 0.979, alpha: 1.0)
+            
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 0.5))
+            view.backgroundColor = .lightGray
+            self.addSubview(view)
         } else {
             self.backgroundColor = nil
         }
